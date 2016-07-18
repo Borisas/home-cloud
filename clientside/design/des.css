@@ -1,3 +1,17 @@
+.droparea{
+    width:100%;
+    height:100%;
+    /*opacity:0.2;
+    background-color:green;*/
+
+    position:absolute;
+    top:0;
+    left:0;
+
+    z-index:100;
+
+    pointer-events:none;
+}
 .toolbar{
     width:100%;
     height:10%;
@@ -28,8 +42,9 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 
-    border: 2px solid rgb(95,95,95);
+    border: 1px solid rgb(95,95,95);
     border-right:none;
+    border-left:none;
 }
 .main{
     width: 70%;
@@ -98,7 +113,7 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    border: 2px solid rgb(95,95,95);
+    border: 1px solid rgb(95,95,95);
     border-right:none;
     border-bottom:none;
 
