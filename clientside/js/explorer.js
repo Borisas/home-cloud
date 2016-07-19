@@ -41,34 +41,67 @@ var explorer = {
     },
     file:function(loc){
 
+        var parent = $("#preview");
+
         explorer.select(explorer.ls.indexOf(loc));
 
         if(loc == "..") return;
 
-        $("<div class='download' onclick='console.(\"cock\");'></div>");
+        parent.html("");
 
-        var download_button = document.createElement("div");
-        download_button.className = "download";
-        download_button.onclick = createCallback_1(explorer.pull,loc);
-        download_button.innerHTML = "DOWNLOAD";
+        var download_bar = document.createElement("div");
+        download_bar.style.width="100%";
+        download_bar.style.backgroundColor = "green";
+        download_bar.style.marginTop = "5px";
+        download_bar.onclick = createCallback_1(explorer.pull, loc);
+        parent.append($(download_bar));
 
-        var preview = document.createElement("div");
-        preview.className="preview_box";
+        var download_button = document.createElement("img");
+        download_button.src = "design/buttons/ico_download.png";
+        download_button.style.position = "relative";
+        download_button.style.left="0";
+        download_button.style.top="0";
+        download_button.style.width="15%";
+        download_button.style.paddingLeft="5px";
+        download_bar.appendChild(download_button);
 
-        var icon = document.createElement("img");
-        icon.src = "design/icons/"+getFileIco(loc);
-        icon.style.width = "100%";
-        icon.style.height = "100%";
-        preview.appendChild(icon);
+        var preview_box = document.createElement("div");
+        preview_box.style.backgroundColor="blue";
+        preview_box.style.width="100px";
+        preview_box.style.height="100px";
+        parent.append($(preview_box));
 
-        var title = document.createElement("div");
-        title.className="title";
-        title.innerHTML=loc;
+        // var download_annotation = document.createElement("span");
+        // download_annotation.innerHTML = "Download";
+        // $(download_bar).append($(download_annotation));
 
-        $("#preview").html("");
-        $("#preview").append($(download_button));
-        $("#preview").append($(preview));
-        $("#preview").append($(title));
+
+        // $("<div class='download' onclick='console.(\"cock\");'></div>");
+
+        // var download_button = document.createElement("div");
+        // download_button.className = "download";
+        // download_button.onclick = createCallback_1(explorer.pull,loc);
+        // download_button.innerHTML = "DOWNLOAD";
+
+        // var preview = document.createElement("div");
+        // preview.className="preview_box";
+
+        // var icon = document.createElement("img");
+        // icon.src = "design/icons/"+getFileIco(loc);
+        // icon.style.width = "100%";
+        // icon.style.height = "100%";
+        // preview.appendChild(icon);
+
+        // var title = document.createElement("div");
+        // title.className="title";
+        // title.innerHTML=loc;
+
+        // $("#preview").html("");
+        // $("#preview").append($(download_button));
+        // $("#preview").append($(preview));
+        // $("#preview").append($(title));
+
+
         
         //clear it
         // $("#preview").html("");
@@ -92,11 +125,19 @@ var explorer = {
     },
     create_item:function(fn){
 
+
+
         var element = document.createElement("div");
         element.className = "item";
         element.id = explorer.ls.indexOf(fn);
         element.ondblclick = createCallback_1(explorer.cd,fn);
         element.onclick = createCallback_1(explorer.file,fn);
+
+        // if(fn != ".."){
+        //     var selector = document.createElement("input");
+        //     selector.setAttribute("type","checkbox");
+        //     element.appendChild(selector);
+        // }
 
         var icon = document.createElement("img");
         icon.src = "design/icons/"+getFileIco(fn);

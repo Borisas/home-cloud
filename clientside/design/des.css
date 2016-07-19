@@ -84,10 +84,10 @@
     /*background-color:rgb(200,200,250);*/
 }
 
-.main :nth-child(even):not(img):not(span){
+.main :nth-child(even):not(img):not(span):not(table):not(tr):not(td){
     background-color:rgb(255,255,255);
 }
-.main    :nth-child(odd):not(img):not(span){
+.main    :nth-child(odd):not(img):not(span):not(table):not(tr):not(td){
     background-color:rgb(239,246,254);
 }
 .divider_horizontal{
